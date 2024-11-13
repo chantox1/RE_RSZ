@@ -2483,6 +2483,7 @@ typedef struct {
             if (FTell() + 4 <= FileSize() && ReadUInt(FTell()) != 0 && FieldType == Object_tid || FieldType == UserData_tid || FieldType == ukn_type 
             || (FieldType == Data_tid && FieldSize == 4 && FTell() + 4 + (IsList * 4) <= FileSize() && detectedObject(FTell() + (IsList * 4)))
             || (IsList && FieldType == S32_tid && FTell() + FieldSize + (IsList * 4) <= FileSize())
+            || (IsList && FieldType == S16_tid && FTell() + FieldSize + (IsList * 4) <= FileSize())
             || (IsList && FieldType == U32_tid && FTell() + FieldSize + (IsList * 4) <= FileSize())) {
                 struct RSZVariable var(hash, z);
             } else {
